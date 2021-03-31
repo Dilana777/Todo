@@ -16,8 +16,9 @@ export function Home() {
 	const updatedtoDo = frases.map((listItems, i) => {
 		return (
 			<div key={i}>
-				<li className="li">{listItems}</li>
-				<button onClick={e => deleteToDo(i)}>X</button>
+				<button onClick={e => deleteToDo(i)}>
+					<li className="li">{listItems}</li>Eliminar
+				</button>
 			</div>
 		);
 	});
@@ -28,7 +29,7 @@ export function Home() {
 	);
 
 	function handleChange(k) {
-		if (k.keyCode === 13) {
+		if (k.keyCode === 13 && k.value != null) {
 			setFrase([...frases, tarea]);
 			console.log(tarea);
 		}
